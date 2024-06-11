@@ -3,51 +3,68 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjehaes <tjehaes@student.42luxembourg.lu>  +#+  +:+       +#+        */
+/*   By: tjehaes <tjehaes@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 22:03:07 by tjehaes           #+#    #+#             */
-/*   Updated: 2024/06/10 22:07:22 by tjehaes          ###   ########.fr       */
+/*   Created: 2024/06/11 09:17:21 by tjehaes           #+#    #+#             */
+/*   Updated: 2024/06/11 14:23:51 by tjehaes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack_node	*get_min(t_stack_node *stack)
+t_stack_node	*create_new_node(int data)
 {
-	long			min;
-	t_stack_node	*min_node;
+	t_stack_node	*new_node;
 
-	if (!stack)
-		return (NULL);
-	min = LONG_MAX;
-	while (stack)
+	new_node = malloc(sizeof(t_stack_node));
+	if (!new_node)
 	{
-		if (stack -> data < min)
-		{
-			min = stack -> data;
-			min_node = stack;
-		}
-		stack = stack -> next;
+		ft_printf("memory allocation failed \n");
+		exit(1);
 	}
-	return (min_node); 
+	new_node -> data = data;
+	new_node -> next = NULL;
+	return (new_node);
 }
 
-t_stack_node	*get_max(t_stack_node *stack)
+void	init_stack(t_stack_node *stack)
 {
-	long			max;
-	t_stack_node	*max_node;
+	stack = NULL;
+}
 
-	if (!stack)
-		return (NULL);
-	max = LONG_MIN;
-	while (stack)
+int	is_empty(t_stack_node **stack)
+{
+	if (*stack == NULL)
+		return (1);
+	return (0);
+}
+
+int	ft_remove(t_stack_node **stack)
+{
+	t_stack_node	*temp;
+	int				top_data;
+
+	if (is_empty(stack))
 	{
-		if (stack -> data > max)
-		{
-			max = stack -> data;
-			max_node = stack;
-		}
-		stack = stack -> next;
+		ft_printf("Pile vide");
+		return (-1);
 	}
-	return (max_node);
+	temp = *stack;
+	top_data = temp -> data;
+	*stack = (*stack)-> next;
+	free(temp);
+	return (top_data);
+}
+
+int	stack_size(t_stack_node *stack)
+{
+	int		i;
+
+	i = 0;
+	while (stack != NULL)
+	{
+		stack = stack -> next;
+		i++;
+	}
+	return (i);
 }

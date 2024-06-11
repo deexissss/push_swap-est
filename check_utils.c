@@ -6,19 +6,22 @@
 /*   By: tjehaes <tjehaes@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 22:31:05 by tjehaes           #+#    #+#             */
-/*   Updated: 2024/06/10 22:31:07 by tjehaes          ###   ########.fr       */
+/*   Updated: 2024/06/11 14:38:25 by tjehaes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/push_swap.h"
+#include "push_swap.h"
 
-int	ft_checksorted(t_stack_node *stack)
+int	ft_checksorted(t_stack_node **stack)
 {
-	while (stack -> next != NULL)
+	t_stack_node	*current;
+
+	current = *stack;
+	while (current != NULL)
 	{
-		if (stack -> data > stack -> next -> data)
+		if (current -> data > current -> next -> data)
 			return (0);
-		stack = stack -> next;
+		current = current -> next;
 	}
 	return (1);
 }
@@ -57,14 +60,14 @@ int	duplicate_nb(t_stack_node *stack, int nb)
 
 void	free_stack(t_stack_node *stack)
 {
-	t_node	*next_node;
+	t_stack_node	*next_node;
 
 	if (!stack)
 		return ;
 	while (stack != NULL)
 	{
 		next_node = stack -> next;
-		free(current);
+		free(stack);
 		stack = next_node;
 	}
 	free(stack);
