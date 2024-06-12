@@ -6,7 +6,7 @@
 /*   By: tjehaes <tjehaes@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 13:33:43 by tjehaes           #+#    #+#             */
-/*   Updated: 2024/06/12 10:32:15 by tjehaes          ###   ########.fr       */
+/*   Updated: 2024/06/12 14:35:34 by tjehaes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,11 @@ int	main(int argc, char **argv)
 	t_stack_node	**stackb;
 	int				i;
 	int				nb;
-	t_stack_node	cheap;
 
 	stacka = malloc(sizeof(t_stack_node));
 	stackb = malloc(sizeof(t_stack_node));
 	if (!stacka || !stackb)
 		return (0);
-	if (argc <= 1)
-		ft_printf("\n");
 	i = 1;
 	if (argc > 1)
 	{
@@ -35,13 +32,19 @@ int	main(int argc, char **argv)
 			add_node(stacka, nb);
 			i++;
 		}
-		display_stack(*stacka);
-		sort_stack(stacka, stackb);
+		if (ft_checksorted(*stacka) != 1)
+		{
+			if (stack_size(*stacka) == 2)
+				sa(stacka);
+			else
+				sort_stack(stacka, stackb);
+		}
 		display_stack(*stacka);
 	}
 	while (!is_empty(stacka))
 		ft_remove(stacka);
 	free(stacka);
 	free(stackb);
+	ft_printf("\n");
 	return (0);
 }

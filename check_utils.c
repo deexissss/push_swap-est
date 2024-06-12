@@ -6,22 +6,19 @@
 /*   By: tjehaes <tjehaes@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 22:31:05 by tjehaes           #+#    #+#             */
-/*   Updated: 2024/06/11 14:38:25 by tjehaes          ###   ########.fr       */
+/*   Updated: 2024/06/12 11:21:32 by tjehaes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_checksorted(t_stack_node **stack)
+int	ft_checksorted(t_stack_node *stack)
 {
-	t_stack_node	*current;
-
-	current = *stack;
-	while (current != NULL)
+	while (stack -> next != NULL)
 	{
-		if (current -> data > current -> next -> data)
+		if (stack -> data > stack -> next -> data)
 			return (0);
-		current = current -> next;
+		stack = stack -> next;
 	}
 	return (1);
 }

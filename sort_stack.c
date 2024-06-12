@@ -6,7 +6,7 @@
 /*   By: tjehaes <tjehaes@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:04:08 by tjehaes           #+#    #+#             */
-/*   Updated: 2024/06/12 10:47:12 by tjehaes          ###   ########.fr       */
+/*   Updated: 2024/06/12 13:30:02 by tjehaes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	sort_stack(t_stack_node **stack1, t_stack_node **stack2)
 	int	len;
 
 	len = stack_size(*stack1);
-	if (len-- > 3 && !ft_checksorted(stack1))
+	if (len-- > 3)
 		pb(stack1, stack2);
-	if (len-- > 3 && !ft_checksorted(stack1))
+	if (len-- > 3)
 		pb(stack1, stack2);
 	while (len > 3)
 	{
