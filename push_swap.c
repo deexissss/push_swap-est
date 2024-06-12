@@ -6,12 +6,12 @@
 /*   By: tjehaes <tjehaes@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 13:33:43 by tjehaes           #+#    #+#             */
-/*   Updated: 2024/06/12 16:13:54 by tjehaes          ###   ########.fr       */
+/*   Updated: 2024/06/12 16:26:51 by tjehaes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/*
 void	display_stack(t_stack_node *stack)
 {
 	while (stack != NULL)
@@ -20,7 +20,7 @@ void	display_stack(t_stack_node *stack)
 		stack = stack -> next;
 	}
 }
-
+*/
 void	create_stack(t_stack_node **stack, char **argv, int i)
 {
 	int	nb;
@@ -64,7 +64,6 @@ int	main(int argc, char **argv)
 			i++;
 		}
 		sorting_checker(stacka, stackb);
-		display_stack(*stacka);
 	}
 	free_stack(*stacka);
 	free_stack(*stackb);
