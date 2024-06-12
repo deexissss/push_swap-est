@@ -6,25 +6,11 @@
 /*   By: tjehaes <tjehaes@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 13:33:43 by tjehaes           #+#    #+#             */
-/*   Updated: 2024/06/11 14:38:04 by tjehaes          ###   ########.fr       */
+/*   Updated: 2024/06/12 10:32:15 by tjehaes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	ft_print_stack(t_stack_node **stack)
-{
-	t_stack_node	*current;
-
-	current = *stack;
-	ft_printf("Stack: ");
-	while (current != NULL)
-	{
-		ft_printf("%d ", current->data);
-		current = current->next;
-	}
-	ft_printf("\n");
-}
 
 int	main(int argc, char **argv)
 {
@@ -49,8 +35,9 @@ int	main(int argc, char **argv)
 			add_node(stacka, nb);
 			i++;
 		}
-		sort_three(stacka);
-		ft_print_stack(stacka);
+		display_stack(*stacka);
+		sort_stack(stacka, stackb);
+		display_stack(*stacka);
 	}
 	while (!is_empty(stacka))
 		ft_remove(stacka);

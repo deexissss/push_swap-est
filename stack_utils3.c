@@ -6,7 +6,7 @@
 /*   By: tjehaes <tjehaes@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 22:03:07 by tjehaes           #+#    #+#             */
-/*   Updated: 2024/06/11 09:17:11 by tjehaes          ###   ########.fr       */
+/*   Updated: 2024/06/12 10:30:42 by tjehaes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,15 @@ t_stack_node	*get_max(t_stack_node *stack)
 		stack = stack -> next;
 	}
 	return (max_node);
+}
+
+void	min_to_top(t_stack_node **stack)
+{
+	while ((*stack)-> data != get_min(*stack)-> data)
+	{
+		if (get_min(*stack)-> sup_median)
+			ra(stack);
+		else
+			rra(stack);
+	}
 }
