@@ -6,7 +6,7 @@
 /*   By: tjehaes <tjehaes@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 21:54:38 by tjehaes           #+#    #+#             */
-/*   Updated: 2024/06/11 14:22:09 by tjehaes          ###   ########.fr       */
+/*   Updated: 2024/06/12 16:02:36 by tjehaes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,6 @@ void	add_node(t_stack_node **stack, int data)
 		while (current -> next != NULL)
 			current = current -> next;
 		current -> next = new_node;
-	}
-}
-
-void	display_stack(t_stack_node *stack)
-{
-	while (stack != NULL)
-	{
-		ft_printf("%d\n", stack -> data);
-		stack = stack -> next;
 	}
 }
 

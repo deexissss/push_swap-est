@@ -48,4 +48,4 @@ fclean: clean
 
 re:	fclean all
 
-.PHONY: all pushswap clean fclean re libft printf
+.PHONY: all pushswap clean fclean re

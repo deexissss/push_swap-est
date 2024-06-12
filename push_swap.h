@@ -6,7 +6,7 @@
 /*   By: tjehaes <tjehaes@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 09:11:08 by tjehaes           #+#    #+#             */
-/*   Updated: 2024/06/12 11:21:43 by tjehaes          ###   ########.fr       */
+/*   Updated: 2024/06/12 16:00:59 by tjehaes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ t_stack_node	*get_max(t_stack_node *stack);
 void			min_to_top(t_stack_node **stack);
 void			init_stack(t_stack_node *stack);
 void			add_node(t_stack_node **stack, int data);
-void			display_stack(t_stack_node *stack);
 int				is_empty(t_stack_node **stack);
 int				ft_remove(t_stack_node **stack);
 int				stack_size(t_stack_node *stack);
@@ -82,7 +81,6 @@ void			init_nodes2(t_stack_node *stack1, t_stack_node *stack2);
 void			current_index(t_stack_node *stack);
 void			sort_preparation(t_stack_node **stack, t_stack_node *top_node,
 					char c_stack);
-void			stack1_creation(t_stack_node **stack, char **argv);
 void			sort_three(t_stack_node **stack);
 void			move_a_to_b(t_stack_node **stack1, t_stack_node **stack2);
 void			move_b_to_a(t_stack_node **stack1, t_stack_node **stack2);

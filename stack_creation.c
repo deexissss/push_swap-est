@@ -6,34 +6,11 @@
 /*   By: tjehaes <tjehaes@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 09:35:24 by tjehaes           #+#    #+#             */
-/*   Updated: 2024/06/11 14:21:16 by tjehaes          ###   ########.fr       */
+/*   Updated: 2024/06/12 15:51:18 by tjehaes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-long	ft_str_to_long(char *str)
-{
-	long	result;
-	int		sign;
-	int		i;
-
-	result = 0;
-	sign = 1;
-	i = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
-		i++;
-	if (str[i] == '+')
-		i++;
-	if (str[i] == '-')
-	{
-		sign = -1;
-		i++;
-	}
-	while (ft_isdigit(str[i]))
-		result = result * 10 + (str[i] - '0');
-	return (result * sign);
-}
 
 t_stack_node	*get_cheapest(t_stack_node *stack)
 {
@@ -67,25 +44,5 @@ void	sort_preparation(t_stack_node **stack, t_stack_node *top_node,
 			else
 				rrb(stack);
 		}
-	}
-}
-
-void	stack1_creation(t_stack_node **stack, char **argv)
-{
-	long	n;
-	int		i;
-
-	i = 0;
-	while (argv[i])
-	{
-		if (syntax_error(argv[i]))
-			error(*stack);
-		n = ft_str_to_long(argv[i]);
-		if (n > INT_MAX || n < INT_MIN)
-			error(*stack);
-		if (duplicate_nb(*stack, (int)n))
-			error(*stack);
-		add_node(stack, (int)n);
-		i++;
 	}
 }

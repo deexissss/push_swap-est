@@ -6,11 +6,43 @@
 /*   By: tjehaes <tjehaes@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 13:33:43 by tjehaes           #+#    #+#             */
-/*   Updated: 2024/06/12 14:35:34 by tjehaes          ###   ########.fr       */
+/*   Updated: 2024/06/12 16:13:54 by tjehaes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	display_stack(t_stack_node *stack)
+{
+	while (stack != NULL)
+	{
+		ft_printf("%d\n", stack -> data);
+		stack = stack -> next;
+	}
+}
+
+void	create_stack(t_stack_node **stack, char **argv, int i)
+{
+	int	nb;
+
+	if (syntax_error(argv[i]))
+		error(*stack);
+	nb = ft_atoi(argv[i]);
+	if (duplicate_nb(*stack, nb))
+		error(*stack);
+	add_node(stack, nb);
+}
+
+void	sorting_checker(t_stack_node **stacka, t_stack_node **stackb)
+{
+	if (ft_checksorted(*stacka) != 1)
+	{
+		if (stack_size(*stacka) == 2)
+			sa(stacka);
+		else
+			sort_stack(stacka, stackb);
+	}
+}
 
 int	main(int argc, char **argv)
 {
@@ -28,23 +60,13 @@ int	main(int argc, char **argv)
 	{
 		while (i + 1 <= argc)
 		{
-			nb = ft_atoi(argv[i]);
-			add_node(stacka, nb);
+			create_stack(stacka, argv, i);
 			i++;
 		}
-		if (ft_checksorted(*stacka) != 1)
-		{
-			if (stack_size(*stacka) == 2)
-				sa(stacka);
-			else
-				sort_stack(stacka, stackb);
-		}
+		sorting_checker(stacka, stackb);
 		display_stack(*stacka);
 	}
-	while (!is_empty(stacka))
-		ft_remove(stacka);
-	free(stacka);
-	free(stackb);
-	ft_printf("\n");
+	free_stack(*stacka);
+	free_stack(*stackb);
 	return (0);
 }
