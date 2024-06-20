@@ -6,7 +6,7 @@
 /*   By: tjehaes <tjehaes@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 22:14:26 by tjehaes           #+#    #+#             */
-/*   Updated: 2024/06/11 11:12:25 by tjehaes          ###   ########.fr       */
+/*   Updated: 2024/06/20 11:34:53 by tjehaes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,24 @@
 
 void	ft_push(t_stack_node **stack1, t_stack_node **stack2)
 {
-	int	data;
+	t_stack_node	*node;
 
-	data = ft_remove(stack1);
-	if (data != -1)
-		add_node(stack2, data);
+	node = *stack1;
+	*stack1 = (*stack1)-> next;
+	if (*stack1)
+		(*stack1)-> prev = NULL;
+	node -> prev = NULL;
+	if (!*stack2)
+	{
+		*stack2 = node;
+		node -> next = NULL;
+	}
+	else
+	{
+		node -> next = *stack2;
+		(*stack2)-> prev = node;
+		*stack2 = node;
+	}
 }
 
 void	pa(t_stack_node **stacka, t_stack_node **stackb)

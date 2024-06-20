@@ -1,4 +1,4 @@
-NAME = pushswap
+NAME = push_swap
 
 PRINTFLIB = printf/libftprintf.a
 LIBFT = libft/libft.a

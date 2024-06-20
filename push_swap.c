@@ -6,7 +6,7 @@
 /*   By: tjehaes <tjehaes@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 13:33:43 by tjehaes           #+#    #+#             */
-/*   Updated: 2024/06/12 16:26:51 by tjehaes          ###   ########.fr       */
+/*   Updated: 2024/06/20 11:56:59 by tjehaes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	display_stack(t_stack_node *stack)
 		ft_printf("%d\n", stack -> data);
 		stack = stack -> next;
 	}
-}
-*/
+}*/
+
 void	create_stack(t_stack_node **stack, char **argv, int i)
 {
 	int	nb;
