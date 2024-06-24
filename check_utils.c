@@ -6,7 +6,7 @@
 /*   By: tjehaes <tjehaes@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 22:31:05 by tjehaes           #+#    #+#             */
-/*   Updated: 2024/06/12 16:05:17 by tjehaes          ###   ########.fr       */
+/*   Updated: 2024/06/24 14:02:41 by tjehaes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@ int	syntax_error(char *str)
 	int	i;
 
 	i = 0;
-	if (!(str[i] == '+' || str[i] == '-' || str[i] >= '0' && str[i] <= '9'))
+	if (!(str[i] == '+' || str[i] == '-' || (str[i] >= '0' && str[i] <= '9')))
 		return (1);
 	if ((str[i] == '+' || str[i] == '-')
-		&& !(str[i + 1] >= '0' && str[i + 1] <= '9'))
+		&& (str[i + 1] < '0' && str[i + 1] > '9'))
 		return (1);
+	if (str[i] == '+' || str[i] == '-')
+		i++;
 	while (str[i] != '\0')
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
@@ -59,15 +61,12 @@ void	free_stack(t_stack_node *stack)
 {
 	t_stack_node	*next_node;
 
-	if (!stack)
-		return ;
-	while (stack != NULL)
+	while (stack)
 	{
 		next_node = stack -> next;
 		free(stack);
 		stack = next_node;
 	}
-	free(stack);
 }
 
 void	error(t_stack_node *stack)

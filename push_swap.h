@@ -6,7 +6,7 @@
 /*   By: tjehaes <tjehaes@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 09:11:08 by tjehaes           #+#    #+#             */
-/*   Updated: 2024/06/12 16:00:59 by tjehaes          ###   ########.fr       */
+/*   Updated: 2024/06/24 14:02:49 by tjehaes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,20 +70,20 @@ void			rr(t_stack_node **stacka, t_stack_node **stackb);
 void			rra(t_stack_node **stack);
 void			rrb(t_stack_node **stack);
 void			rrr(t_stack_node **stacka, t_stack_node **stackb);
-void			both_rotate(t_stack_node **stack1, t_stack_node **stack2,
+void			execute_rr(t_stack_node **stack1, t_stack_node **stack2,
 					t_stack_node *cheapest);
-void			both_rotate_reverse(t_stack_node **stack1,
+void			execute_rrr(t_stack_node **stack1,
 					t_stack_node **stack2, t_stack_node *cheapest);
 /*sort utils*/
 
 void			init_nodes1(t_stack_node *stack1, t_stack_node *stack2);
 void			init_nodes2(t_stack_node *stack1, t_stack_node *stack2);
 void			current_index(t_stack_node *stack);
-void			sort_preparation(t_stack_node **stack, t_stack_node *top_node,
+void			node_to_top(t_stack_node **stack, t_stack_node *top_node,
 					char c_stack);
 void			sort_three(t_stack_node **stack);
-void			move_a_to_b(t_stack_node **stack1, t_stack_node **stack2);
-void			move_b_to_a(t_stack_node **stack1, t_stack_node **stack2);
+void			push_a_to_b(t_stack_node **stack1, t_stack_node **stack2);
+void			push_b_to_a(t_stack_node **stack1, t_stack_node **stack2);
 void			sort_stack(t_stack_node **stack1, t_stack_node **stack2);
 
 #endif

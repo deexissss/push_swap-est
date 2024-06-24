@@ -6,7 +6,7 @@
 /*   By: tjehaes <tjehaes@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 09:35:24 by tjehaes           #+#    #+#             */
-/*   Updated: 2024/06/12 15:51:18 by tjehaes          ###   ########.fr       */
+/*   Updated: 2024/06/24 12:15:29 by tjehaes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_stack_node	*get_cheapest(t_stack_node *stack)
 	return (NULL);
 }
 
-void	sort_preparation(t_stack_node **stack, t_stack_node *top_node,
+void	node_to_top(t_stack_node **stack, t_stack_node *top_node,
 		char c_stack)
 {
 	while (*stack != top_node)

@@ -6,7 +6,7 @@
 /*   By: tjehaes <tjehaes@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 09:17:21 by tjehaes           #+#    #+#             */
-/*   Updated: 2024/06/11 14:23:51 by tjehaes          ###   ########.fr       */
+/*   Updated: 2024/06/24 13:47:20 by tjehaes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ t_stack_node	*create_new_node(int data)
 
 	new_node = malloc(sizeof(t_stack_node));
 	if (!new_node)
-	{
-		ft_printf("memory allocation failed \n");
 		exit(1);
-	}
 	new_node -> data = data;
 	new_node -> next = NULL;
 	return (new_node);

@@ -6,7 +6,7 @@
 /*   By: tjehaes <tjehaes@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 08:35:01 by tjehaes           #+#    #+#             */
-/*   Updated: 2024/06/11 14:14:33 by tjehaes          ###   ########.fr       */
+/*   Updated: 2024/06/24 12:38:23 by tjehaes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ void	stack1_target(t_stack_node *stack1, t_stack_node *stack2)
 {
 	t_stack_node	*current2;
 	t_stack_node	*target_node;
-	long			best_index;
+	int				best_index;
 
 	while (stack1)
 	{
-		best_index = LONG_MIN;
+		best_index = INT_MIN;
 		current2 = stack2;
 		while (current2)
 		{
@@ -51,7 +51,7 @@ void	stack1_target(t_stack_node *stack1, t_stack_node *stack2)
 			}
 			current2 = current2 -> next;
 		}
-		if (best_index == LONG_MIN)
+		if (best_index == INT_MIN)
 			stack1 -> target = get_max(stack2);
 		else
 			stack1 -> target = target_node;
@@ -81,12 +81,12 @@ void	cost(t_stack_node *stack1, t_stack_node *stack2)
 
 void	stack1_cheapest(t_stack_node *stack)
 {
-	long			cheapest_val;
+	int				cheapest_val;
 	t_stack_node	*cheapest_node;
 
 	if (!stack)
 		return ;
-	cheapest_val = LONG_MAX;
+	cheapest_val = INT_MAX;
 	while (stack)
 	{
 		if (stack -> cost < cheapest_val)
