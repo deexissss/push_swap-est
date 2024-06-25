@@ -6,7 +6,7 @@
 /*   By: tjehaes <tjehaes@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 09:17:21 by tjehaes           #+#    #+#             */
-/*   Updated: 2024/06/24 13:47:20 by tjehaes          ###   ########.fr       */
+/*   Updated: 2024/06/25 11:46:27 by tjehaes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_stack_node	*create_new_node(int data)
 		exit(1);
 	new_node -> data = data;
 	new_node -> next = NULL;
+	new_node -> prev = NULL;
 	return (new_node);
 }
 

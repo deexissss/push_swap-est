@@ -6,7 +6,7 @@
 /*   By: tjehaes <tjehaes@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 13:33:43 by tjehaes           #+#    #+#             */
-/*   Updated: 2024/06/24 14:03:03 by tjehaes          ###   ########.fr       */
+/*   Updated: 2024/06/25 12:08:56 by tjehaes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,16 @@ int	main(int argc, char **argv)
 	t_stack_node	**stacka;
 	t_stack_node	**stackb;
 	int				i;
-	int				nb;
 
-	stacka = malloc(sizeof(t_stack_node*));
-	stackb = malloc(sizeof(t_stack_node*));
+	stacka = malloc(sizeof(t_stack_node *));
+	stackb = malloc(sizeof(t_stack_node *));
 	if (!stacka || !stackb)
 		return (1);
-	i = 1;
+	*stacka = NULL;
+	*stackb = NULL;
 	if (argc > 1)
 	{
+		i = 1;
 		while (i + 1 <= argc)
 		{
 			create_stack(stacka, argv, i);
