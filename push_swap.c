@@ -6,7 +6,7 @@
 /*   By: tjehaes <tjehaes@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 13:33:43 by tjehaes           #+#    #+#             */
-/*   Updated: 2024/06/25 12:08:56 by tjehaes          ###   ########.fr       */
+/*   Updated: 2024/06/28 12:00:26 by tjehaes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,43 @@ void	display_stack(t_stack_node *stack)
 	}
 }*/
 
-void	create_stack(t_stack_node **stack, char **argv, int i)
+long	ft_atol(const char *nptr)
 {
-	int	nb;
+	int		i;
+	long	nb;
+	int		sign;
+
+	i = 0;
+	nb = 0;
+	sign = 1;
+	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
+		i++;
+	if (nptr[i] == '+' || nptr[i] == '-')
+	{
+		if (nptr[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		nb = nb * 10 + (nptr[i] - '0');
+		i++;
+	}
+	return (sign * nb);
+}
+
+void	create_stack(t_stack_node **stacka, char **argv, int i)
+{
+	long	nb;
 
 	if (syntax_error(argv[i]))
-		error(*stack);
-	nb = ft_atoi(argv[i]);
-	if (duplicate_nb(*stack, nb))
-		error(*stack);
-	add_node(stack, nb);
+		error(*stacka);
+	nb = ft_atol(argv[i]);
+	if (nb > INT_MAX || nb < INT_MIN)
+		error(*stacka);
+	if (duplicate_nb(*stacka, (int)nb))
+		error(*stacka);
+	add_node(stacka, (int)nb);
 }
 
 void	sorting_checker(t_stack_node **stacka, t_stack_node **stackb)
@@ -51,24 +78,23 @@ int	main(int argc, char **argv)
 	int				i;
 
 	stacka = malloc(sizeof(t_stack_node *));
-	stackb = malloc(sizeof(t_stack_node *));
-	if (!stacka || !stackb)
+	if (!stacka)
 		return (1);
 	*stacka = NULL;
-	*stackb = NULL;
 	if (argc > 1)
 	{
 		i = 1;
-		while (i + 1 <= argc)
-		{
-			create_stack(stacka, argv, i);
-			i++;
-		}
+		while (i < argc)
+			create_stack(stacka, argv, i++);
+		stackb = malloc(sizeof(t_stack_node *));
+		if (!stackb)
+			return (1);
+		*stackb = NULL;
 		sorting_checker(stacka, stackb);
+		free_stack(*stackb);
+		free(stackb);
 	}
 	free_stack(*stacka);
-	free_stack(*stackb);
 	free(stacka);
-	free(stackb);
 	return (0);
 }

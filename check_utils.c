@@ -6,7 +6,7 @@
 /*   By: tjehaes <tjehaes@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 22:31:05 by tjehaes           #+#    #+#             */
-/*   Updated: 2024/06/25 11:51:44 by tjehaes          ###   ########.fr       */
+/*   Updated: 2024/06/28 11:36:38 by tjehaes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,9 @@ void	free_stack(t_stack_node *stack)
 	}
 }
 
-void	error(t_stack_node *stack)
+void	error(t_stack_node *stacka)
 {
-	free_stack(stack);
+	free_stack(stacka);
 	ft_printf("Error\n");
 	exit(1);
 }

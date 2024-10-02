@@ -6,7 +6,7 @@
 /*   By: tjehaes <tjehaes@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 09:11:08 by tjehaes           #+#    #+#             */
-/*   Updated: 2024/06/24 14:02:49 by tjehaes          ###   ########.fr       */
+/*   Updated: 2024/06/28 11:07:42 by tjehaes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int				ft_checksorted(t_stack_node *stack);
 int				syntax_error(char *str);
 int				duplicate_nb(t_stack_node *stack, int nb);
 void			free_stack(t_stack_node *stack);
-void			error(t_stack_node *stack);
+void			error(t_stack_node *stacka);
 
 /*operations*/
 
